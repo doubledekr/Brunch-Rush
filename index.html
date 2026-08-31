@@ -8,22 +8,22 @@
 <meta property="og:description" content="Race Ocean Drive before the unlimited mimosas run out. Pour a glass to start.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://doubledekr.github.io/Brunch-Rush/">
-<meta property="og:image" content="https://doubledekr.github.io/Brunch-Rush/og.png?v=1788137617">
+<meta property="og:image" content="https://doubledekr.github.io/Brunch-Rush/og.png?v=1788137659">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Shauna and Kelsey&#39;s Brunch Rush featuring Jacques and Lisbet">
 <meta name="twitter:description" content="Race Ocean Drive before the unlimited mimosas run out.">
-<meta name="twitter:image" content="https://doubledekr.github.io/Brunch-Rush/og.png?v=1788137617">
-<meta property="og:image:secure_url" content="https://doubledekr.github.io/Brunch-Rush/og.png?v=1788137617">
+<meta name="twitter:image" content="https://doubledekr.github.io/Brunch-Rush/og.png?v=1788137659">
+<meta property="og:image:secure_url" content="https://doubledekr.github.io/Brunch-Rush/og.png?v=1788137659">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:alt" content="Shauna and Kelsey with a red Testarossa on Ocean Drive at sunset - Brunch Rush">
 <meta property="og:site_name" content="Brunch Rush">
 <meta name="twitter:image:alt" content="Shauna and Kelsey's Brunch Rush featuring Jacques and Lisbet">
 <meta name="theme-color" content="#ff4a9a">
-<link rel="image_src" href="https://doubledekr.github.io/Brunch-Rush/og.png?v=1788137617">
-<link rel="apple-touch-icon" href="https://doubledekr.github.io/Brunch-Rush/og.png?v=1788137617">
-<link rel="icon" href="https://doubledekr.github.io/Brunch-Rush/og.png?v=1788137617">
+<link rel="image_src" href="https://doubledekr.github.io/Brunch-Rush/og.png?v=1788137659">
+<link rel="apple-touch-icon" href="https://doubledekr.github.io/Brunch-Rush/og.png?v=1788137659">
+<link rel="icon" href="https://doubledekr.github.io/Brunch-Rush/og.png?v=1788137659">
 <style>
   html,body{margin:0;padding:0;height:100%;overflow:hidden;background:#14061f;touch-action:none;
     -webkit-user-select:none;user-select:none;font-family:'Courier New',monospace;}
@@ -825,6 +825,9 @@ addEventListener('keyup',e=>{
 });
 const touches={};
 addEventListener('pointerup',kickAudio);
+if(typeof document!=='undefined'&&document.addEventListener){
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden){try{kickAudio();const el=trackEl(curTrack);if(el&&el.paused&&!el.ended&&curTrack!=='dance'){const p=el.play();if(p&&p.catch)p.catch(()=>{});}}catch(e){}}});
+}
 addEventListener('touchend',kickAudio,{passive:true});
 addEventListener('click',kickAudio);
 addEventListener('pointerdown',e=>{
@@ -1599,55 +1602,55 @@ function drawPlayer(cx,cy){
 }
 // ---------- brunch cutscene ----------
 let cutT=0,inCut=false,titleMode=true;
-const TITLE_BG='assets/title_bg.png?v=1788137617';
-const WIN_BG='assets/win_bg.png?v=1788137617';
-const CAR_SPR='assets/car_spr.png?v=1788137617';
-const WORLD_BG='assets/world_bg.png?v=1788137617';
-const SPR_GLASS='assets/spr_glass.png?v=1788137617';
+const TITLE_BG='assets/title_bg.png?v=1788137659';
+const WIN_BG='assets/win_bg.png?v=1788137659';
+const CAR_SPR='assets/car_spr.png?v=1788137659';
+const WORLD_BG='assets/world_bg.png?v=1788137659';
+const SPR_GLASS='assets/spr_glass.png?v=1788137659';
 const GLASS_IN=[[-1, -1], [19, 34], [15, 35], [11, 39], [10, 40], [10, 41], [9, 41], [9, 41], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [7, 42], [7, 42], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 44], [7, 44], [6, 45], [6, 44], [6, 44], [6, 44], [6, 44], [6, 44], [6, 44], [6, 44], [5, 44], [5, 44], [5, 45], [5, 45], [5, 46], [5, 46], [5, 46], [5, 46], [5, 46], [5, 46], [5, 45], [5, 45], [5, 45], [5, 45], [5, 46], [5, 46], [5, 45], [5, 45], [5, 45], [5, 46], [5, 46], [5, 46], [5, 46], [5, 46], [4, 46], [4, 46], [4, 45], [4, 45], [5, 45], [5, 45], [5, 45], [5, 45], [5, 45], [6, 44], [6, 43], [7, 43], [7, 43], [7, 43], [7, 42], [8, 42], [9, 41], [9, 41], [9, 41], [10, 40], [11, 39], [11, 38], [13, 37], [13, 37], [13, 36], [14, 36], [14, 36], [14, 35], [15, 34], [17, 33], [17, 32], [18, 31], [20, 30], [20, 30], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1]];
-const TIPSY_BG='assets/tipsy_bg.png?v=1788137617';
-const BOARD_BG='assets/board_bg.png?v=1788137617';
-const JACQUES_BG='assets/scene_jacques.png?v=1788137617';
-const LOOKUP_BG='assets/scene_lookup.png?v=1788137617';
-const BURGER_BG='assets/scene_burger.png?v=1788137617';
-const DINER_BG='assets/scene_diner.png?v=1788137617';
-const PARTY_BG='assets/scene_party.png?v=1788137617';
-const FLOOR_BG='assets/scene_dancefloor.png?v=1788137617';
-const BFFS_BG='assets/scene_bffs.png?v=1788137617';
-const PENT_MUSIC='assets/pent_music.m4a?v=1788137617';
-const DANCE_MUSIC='assets/dance_music.m4a?v=1788137617';
-const FOOD_SRC={burger:'assets/food_burger.png?v=1788137617',fries:'assets/food_fries.png?v=1788137617',shake:'assets/food_shake.png?v=1788137617',rings:'assets/food_rings.png?v=1788137617',ticket:'assets/food_ticket.png?v=1788137617',phone:'assets/food_phone.png?v=1788137617'};
+const TIPSY_BG='assets/tipsy_bg.png?v=1788137659';
+const BOARD_BG='assets/board_bg.png?v=1788137659';
+const JACQUES_BG='assets/scene_jacques.png?v=1788137659';
+const LOOKUP_BG='assets/scene_lookup.png?v=1788137659';
+const BURGER_BG='assets/scene_burger.png?v=1788137659';
+const DINER_BG='assets/scene_diner.png?v=1788137659';
+const PARTY_BG='assets/scene_party.png?v=1788137659';
+const FLOOR_BG='assets/scene_dancefloor.png?v=1788137659';
+const BFFS_BG='assets/scene_bffs.png?v=1788137659';
+const PENT_MUSIC='assets/pent_music.m4a?v=1788137659';
+const DANCE_MUSIC='assets/dance_music.m4a?v=1788137659';
+const FOOD_SRC={burger:'assets/food_burger.png?v=1788137659',fries:'assets/food_fries.png?v=1788137659',shake:'assets/food_shake.png?v=1788137659',rings:'assets/food_rings.png?v=1788137659',ticket:'assets/food_ticket.png?v=1788137659',phone:'assets/food_phone.png?v=1788137659'};
 const DANCER_SRC={shauna:'assets/dance_shauna_',kelsey:'assets/dance_kelsey_',jacques:'assets/dance_jacques_',lisbet:'assets/dance_lisbet_'};
-const BUILD_V='1788137617';
-const BEAT_SRC=['assets/beat_glass.png?v=1788137617','assets/beat_note.png?v=1788137617','assets/beat_star.png?v=1788137617','assets/beat_flamingo.png?v=1788137617'];
-const PENT_BG='assets/pent_bg.png?v=1788137617';
-const SPR_PELICAN='assets/spr_pelican.png?v=1788137617';
-const TRIO_SRC=['assets/trio_00.png?v=1788137617','assets/trio_01.png?v=1788137617','assets/trio_02.png?v=1788137617','assets/trio_10.png?v=1788137617','assets/trio_11.png?v=1788137617','assets/trio_12.png?v=1788137617'];
-const VO_GIG='assets/vo_gig.m4a?v=1788137617';
-const VO_EEK='assets/vo_eek.m4a?v=1788137617';
-const MIX_BG='assets/mix_bg.png?v=1788137617';
-const SPR_JUG='assets/spr_jug.png?v=1788137617';
-const SPR_BOTTLE='assets/spr_bottle.png?v=1788137617';
-const SPR_SPARK='assets/spr_spark.png?v=1788137617';
-const STORY_BG='assets/story_bg.png?v=1788137617';
-const SPR_MIMOSA='assets/spr_mimosa.png?v=1788137617';
-const VO_OHMAN='assets/vo_ohman.m4a?v=1788137617';
-const VO_HURRY='assets/vo_hurry.m4a?v=1788137617';
-const VO_NEVER='assets/vo_never.m4a?v=1788137617';
-const LOSE_SIGN='assets/lose_sign.png?v=1788137617';
-const VO_GO='assets/vo_go.m4a?v=1788137617';
-const VO_CHEERS='assets/vo_cheers.m4a?v=1788137617';
-const VO_GOODMIX='assets/vo_goodmix.m4a?v=1788137617';
-const VO_BADMIX='assets/vo_badmix.m4a?v=1788137617';
-const PHONE_BG='assets/phone_bg.png?v=1788137617';
-const BRUNCH_MUSIC='assets/brunch_music.m4a?v=1788137617';
-const WOBBLE_MUSIC='assets/wobble_music.m4a?v=1788137617';
-const LISBET_MUSIC='assets/lisbet_music.m4a?v=1788137617';
-const MUSIC_DATA='assets/music_data.m4a?v=1788137617';
-const SPR_CONE='assets/spr_cone.png?v=1788137617';
-const SPR_VOLT='assets/spr_volt.png?v=1788137617';
-const SPR_CROISS='assets/spr_croiss.png?v=1788137617';
-const SPR_TRUCK='assets/spr_truck.png?v=1788137617';
+const BUILD_V='1788137659';
+const BEAT_SRC=['assets/beat_glass.png?v=1788137659','assets/beat_note.png?v=1788137659','assets/beat_star.png?v=1788137659','assets/beat_flamingo.png?v=1788137659'];
+const PENT_BG='assets/pent_bg.png?v=1788137659';
+const SPR_PELICAN='assets/spr_pelican.png?v=1788137659';
+const TRIO_SRC=['assets/trio_00.png?v=1788137659','assets/trio_01.png?v=1788137659','assets/trio_02.png?v=1788137659','assets/trio_10.png?v=1788137659','assets/trio_11.png?v=1788137659','assets/trio_12.png?v=1788137659'];
+const VO_GIG='assets/vo_gig.m4a?v=1788137659';
+const VO_EEK='assets/vo_eek.m4a?v=1788137659';
+const MIX_BG='assets/mix_bg.png?v=1788137659';
+const SPR_JUG='assets/spr_jug.png?v=1788137659';
+const SPR_BOTTLE='assets/spr_bottle.png?v=1788137659';
+const SPR_SPARK='assets/spr_spark.png?v=1788137659';
+const STORY_BG='assets/story_bg.png?v=1788137659';
+const SPR_MIMOSA='assets/spr_mimosa.png?v=1788137659';
+const VO_OHMAN='assets/vo_ohman.m4a?v=1788137659';
+const VO_HURRY='assets/vo_hurry.m4a?v=1788137659';
+const VO_NEVER='assets/vo_never.m4a?v=1788137659';
+const LOSE_SIGN='assets/lose_sign.png?v=1788137659';
+const VO_GO='assets/vo_go.m4a?v=1788137659';
+const VO_CHEERS='assets/vo_cheers.m4a?v=1788137659';
+const VO_GOODMIX='assets/vo_goodmix.m4a?v=1788137659';
+const VO_BADMIX='assets/vo_badmix.m4a?v=1788137659';
+const PHONE_BG='assets/phone_bg.png?v=1788137659';
+const BRUNCH_MUSIC='assets/brunch_music.m4a?v=1788137659';
+const WOBBLE_MUSIC='assets/wobble_music.m4a?v=1788137659';
+const LISBET_MUSIC='assets/lisbet_music.m4a?v=1788137659';
+const MUSIC_DATA='assets/music_data.m4a?v=1788137659';
+const SPR_CONE='assets/spr_cone.png?v=1788137659';
+const SPR_VOLT='assets/spr_volt.png?v=1788137659';
+const SPR_CROISS='assets/spr_croiss.png?v=1788137659';
+const SPR_TRUCK='assets/spr_truck.png?v=1788137659';
 function mkImg(u){const i=new Image();i.src=u;return i;}
 const titleImg=mkImg(TITLE_BG), winImg=mkImg(WIN_BG), carImg=mkImg(CAR_SPR), worldImg=mkImg(WORLD_BG);
 const coneImg=mkImg(SPR_CONE), voltImg=mkImg(SPR_VOLT), croissImg=mkImg(SPR_CROISS), truckImg=mkImg(SPR_TRUCK);
@@ -3009,6 +3012,19 @@ function frame(now){
     renderSplash();return;
   }
   if(devPending){renderDevGate();return;}
+  // music watchdog: if a track is expected but nothing is audibly playing, re-issue the switch
+  if(musicStarted&&!splashMode&&(t-(frame._mw||0))>1.0){
+    frame._mw=t;
+    const want=curTrack;
+    const el=trackEl(want);
+    const elOk=!!(el&&!el.paused&&!el.ended);
+    const bufOk=!!musicNode;
+    const songOverOnPurpose=(want==='dance'&&((el&&el.ended)||bffsMode||dance.phase==='fail'||dance.phase==='celebrate'));
+    if(want&&!elOk&&!bufOk&&!songOverOnPurpose){
+      curTrack='';
+      setTrack(want);
+    }
+  }
   setTrack(partyMode?'penthouse':((dance.on||bffsMode)?'dance':((wob.on||lookupMode||burgerMode||diner.on)?'wobble':(lisbetMode?'lisbet':(((inCut&&ended==='win')||mix.on)?'brunch':'drive')))));
   if(lisbetMode){lisbetT+=dt;renderLisbet();return;}
   if(wob.on){wobUpdate(dt);renderWobble();return;}
