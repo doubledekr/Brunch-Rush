@@ -1599,54 +1599,54 @@ function drawPlayer(cx,cy){
 }
 // ---------- brunch cutscene ----------
 let cutT=0,inCut=false,titleMode=true;
-const TITLE_BG='assets/title_bg.png?v=1788136472';
-const WIN_BG='assets/win_bg.png?v=1788136472';
-const CAR_SPR='assets/car_spr.png?v=1788136472';
-const WORLD_BG='assets/world_bg.png?v=1788136472';
-const SPR_GLASS='assets/spr_glass.png?v=1788136472';
+const TITLE_BG='assets/title_bg.png?v=1788136753';
+const WIN_BG='assets/win_bg.png?v=1788136753';
+const CAR_SPR='assets/car_spr.png?v=1788136753';
+const WORLD_BG='assets/world_bg.png?v=1788136753';
+const SPR_GLASS='assets/spr_glass.png?v=1788136753';
 const GLASS_IN=[[-1, -1], [19, 34], [15, 35], [11, 39], [10, 40], [10, 41], [9, 41], [9, 41], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [7, 42], [7, 42], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 44], [7, 44], [6, 45], [6, 44], [6, 44], [6, 44], [6, 44], [6, 44], [6, 44], [6, 44], [5, 44], [5, 44], [5, 45], [5, 45], [5, 46], [5, 46], [5, 46], [5, 46], [5, 46], [5, 46], [5, 45], [5, 45], [5, 45], [5, 45], [5, 46], [5, 46], [5, 45], [5, 45], [5, 45], [5, 46], [5, 46], [5, 46], [5, 46], [5, 46], [4, 46], [4, 46], [4, 45], [4, 45], [5, 45], [5, 45], [5, 45], [5, 45], [5, 45], [6, 44], [6, 43], [7, 43], [7, 43], [7, 43], [7, 42], [8, 42], [9, 41], [9, 41], [9, 41], [10, 40], [11, 39], [11, 38], [13, 37], [13, 37], [13, 36], [14, 36], [14, 36], [14, 35], [15, 34], [17, 33], [17, 32], [18, 31], [20, 30], [20, 30], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1]];
-const TIPSY_BG='assets/tipsy_bg.png?v=1788136472';
-const BOARD_BG='assets/board_bg.png?v=1788136472';
-const LOOKUP_BG='assets/scene_lookup.png?v=1788136472';
-const BURGER_BG='assets/scene_burger.png?v=1788136472';
-const DINER_BG='assets/scene_diner.png?v=1788136472';
-const PARTY_BG='assets/scene_party.png?v=1788136472';
-const FLOOR_BG='assets/scene_dancefloor.png?v=1788136472';
-const BFFS_BG='assets/scene_bffs.png?v=1788136472';
-const PENT_MUSIC='assets/pent_music.m4a?v=1788136472';
-const DANCE_MUSIC='assets/dance_music.m4a?v=1788136472';
-const FOOD_SRC={burger:'assets/food_burger.png?v=1788136472',fries:'assets/food_fries.png?v=1788136472',shake:'assets/food_shake.png?v=1788136472',rings:'assets/food_rings.png?v=1788136472',ticket:'assets/food_ticket.png?v=1788136472',phone:'assets/food_phone.png?v=1788136472'};
+const TIPSY_BG='assets/tipsy_bg.png?v=1788136753';
+const BOARD_BG='assets/board_bg.png?v=1788136753';
+const LOOKUP_BG='assets/scene_lookup.png?v=1788136753';
+const BURGER_BG='assets/scene_burger.png?v=1788136753';
+const DINER_BG='assets/scene_diner.png?v=1788136753';
+const PARTY_BG='assets/scene_party.png?v=1788136753';
+const FLOOR_BG='assets/scene_dancefloor.png?v=1788136753';
+const BFFS_BG='assets/scene_bffs.png?v=1788136753';
+const PENT_MUSIC='assets/pent_music.m4a?v=1788136753';
+const DANCE_MUSIC='assets/dance_music.m4a?v=1788136753';
+const FOOD_SRC={burger:'assets/food_burger.png?v=1788136753',fries:'assets/food_fries.png?v=1788136753',shake:'assets/food_shake.png?v=1788136753',rings:'assets/food_rings.png?v=1788136753',ticket:'assets/food_ticket.png?v=1788136753',phone:'assets/food_phone.png?v=1788136753'};
 const DANCER_SRC={shauna:'assets/dance_shauna_',kelsey:'assets/dance_kelsey_',jacques:'assets/dance_jacques_',lisbet:'assets/dance_lisbet_'};
-const BUILD_V='1788136472';
-const BEAT_SRC=['assets/beat_glass.png?v=1788136472','assets/beat_note.png?v=1788136472','assets/beat_star.png?v=1788136472','assets/beat_flamingo.png?v=1788136472'];
-const PENT_BG='assets/pent_bg.png?v=1788136472';
-const SPR_PELICAN='assets/spr_pelican.png?v=1788136472';
-const TRIO_SRC=['assets/trio_00.png?v=1788136472','assets/trio_01.png?v=1788136472','assets/trio_02.png?v=1788136472','assets/trio_10.png?v=1788136472','assets/trio_11.png?v=1788136472','assets/trio_12.png?v=1788136472'];
-const VO_GIG='assets/vo_gig.m4a?v=1788136472';
-const VO_EEK='assets/vo_eek.m4a?v=1788136472';
-const MIX_BG='assets/mix_bg.png?v=1788136472';
-const SPR_JUG='assets/spr_jug.png?v=1788136472';
-const SPR_BOTTLE='assets/spr_bottle.png?v=1788136472';
-const SPR_SPARK='assets/spr_spark.png?v=1788136472';
-const STORY_BG='assets/story_bg.png?v=1788136472';
-const SPR_MIMOSA='assets/spr_mimosa.png?v=1788136472';
-const VO_OHMAN='assets/vo_ohman.m4a?v=1788136472';
-const VO_HURRY='assets/vo_hurry.m4a?v=1788136472';
-const VO_NEVER='assets/vo_never.m4a?v=1788136472';
-const LOSE_SIGN='assets/lose_sign.png?v=1788136472';
-const VO_GO='assets/vo_go.m4a?v=1788136472';
-const VO_CHEERS='assets/vo_cheers.m4a?v=1788136472';
-const VO_GOODMIX='assets/vo_goodmix.m4a?v=1788136472';
-const VO_BADMIX='assets/vo_badmix.m4a?v=1788136472';
-const PHONE_BG='assets/phone_bg.png?v=1788136472';
-const BRUNCH_MUSIC='assets/brunch_music.m4a?v=1788136472';
-const WOBBLE_MUSIC='assets/wobble_music.m4a?v=1788136472';
-const LISBET_MUSIC='assets/lisbet_music.m4a?v=1788136472';
-const MUSIC_DATA='assets/music_data.m4a?v=1788136472';
-const SPR_CONE='assets/spr_cone.png?v=1788136472';
-const SPR_VOLT='assets/spr_volt.png?v=1788136472';
-const SPR_CROISS='assets/spr_croiss.png?v=1788136472';
-const SPR_TRUCK='assets/spr_truck.png?v=1788136472';
+const BUILD_V='1788136753';
+const BEAT_SRC=['assets/beat_glass.png?v=1788136753','assets/beat_note.png?v=1788136753','assets/beat_star.png?v=1788136753','assets/beat_flamingo.png?v=1788136753'];
+const PENT_BG='assets/pent_bg.png?v=1788136753';
+const SPR_PELICAN='assets/spr_pelican.png?v=1788136753';
+const TRIO_SRC=['assets/trio_00.png?v=1788136753','assets/trio_01.png?v=1788136753','assets/trio_02.png?v=1788136753','assets/trio_10.png?v=1788136753','assets/trio_11.png?v=1788136753','assets/trio_12.png?v=1788136753'];
+const VO_GIG='assets/vo_gig.m4a?v=1788136753';
+const VO_EEK='assets/vo_eek.m4a?v=1788136753';
+const MIX_BG='assets/mix_bg.png?v=1788136753';
+const SPR_JUG='assets/spr_jug.png?v=1788136753';
+const SPR_BOTTLE='assets/spr_bottle.png?v=1788136753';
+const SPR_SPARK='assets/spr_spark.png?v=1788136753';
+const STORY_BG='assets/story_bg.png?v=1788136753';
+const SPR_MIMOSA='assets/spr_mimosa.png?v=1788136753';
+const VO_OHMAN='assets/vo_ohman.m4a?v=1788136753';
+const VO_HURRY='assets/vo_hurry.m4a?v=1788136753';
+const VO_NEVER='assets/vo_never.m4a?v=1788136753';
+const LOSE_SIGN='assets/lose_sign.png?v=1788136753';
+const VO_GO='assets/vo_go.m4a?v=1788136753';
+const VO_CHEERS='assets/vo_cheers.m4a?v=1788136753';
+const VO_GOODMIX='assets/vo_goodmix.m4a?v=1788136753';
+const VO_BADMIX='assets/vo_badmix.m4a?v=1788136753';
+const PHONE_BG='assets/phone_bg.png?v=1788136753';
+const BRUNCH_MUSIC='assets/brunch_music.m4a?v=1788136753';
+const WOBBLE_MUSIC='assets/wobble_music.m4a?v=1788136753';
+const LISBET_MUSIC='assets/lisbet_music.m4a?v=1788136753';
+const MUSIC_DATA='assets/music_data.m4a?v=1788136753';
+const SPR_CONE='assets/spr_cone.png?v=1788136753';
+const SPR_VOLT='assets/spr_volt.png?v=1788136753';
+const SPR_CROISS='assets/spr_croiss.png?v=1788136753';
+const SPR_TRUCK='assets/spr_truck.png?v=1788136753';
 function mkImg(u){const i=new Image();i.src=u;return i;}
 const titleImg=mkImg(TITLE_BG), winImg=mkImg(WIN_BG), carImg=mkImg(CAR_SPR), worldImg=mkImg(WORLD_BG);
 const coneImg=mkImg(SPR_CONE), voltImg=mkImg(SPR_VOLT), croissImg=mkImg(SPR_CROISS), truckImg=mkImg(SPR_TRUCK);
@@ -2645,10 +2645,21 @@ function renderDance(){
   ctx.restore();
 }
 function renderBffs(){
-  if(rdy(bffsImg))ctx.drawImage(bffsImg,0,0,W,H);else{ctx.fillStyle='#3a2050';ctx.fillRect(0,0,W,H);}
+  // polaroid frame drawn in-game
+  ctx.fillStyle='#f3ecd8';ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='#e6dcc3';ctx.fillRect(0,0,W,3);ctx.fillRect(0,0,3,H);
+  const px0=8,py0=8,pw=W-16,ph=H-52;
+  if(rdy(bffsImg)){
+    const sc=pw/bffsImg.naturalWidth, dh=Math.round(bffsImg.naturalHeight*sc);
+    ctx.save();ctx.beginPath();ctx.rect(px0,py0,pw,ph);ctx.clip();
+    ctx.drawImage(bffsImg,px0,py0,pw,dh);
+    ctx.restore();
+  }else{ctx.fillStyle='#3a2050';ctx.fillRect(px0,py0,pw,ph);}
+  ctx.fillStyle='rgba(20,10,20,.18)';ctx.fillRect(px0,py0+ph,pw,1);
+  pxText('SHAUNA, KELSEY, JACQUES & LISBET: BFFS!',W/2,H-33,2,['#3a2a40','#332338','#2c1d30','#26182a','#201424','#1a1020','#150c1a'],'#f3ecd8');
   if(bffsT<0.9){ctx.fillStyle='rgba(255,244,224,'+(1-bffsT/0.9).toFixed(3)+')';ctx.fillRect(0,0,W,H);}
-  if(bffsT>1.0){pxText('FINAL SCORE '+score,W/2,8,2,ROWS_GOLD,'#2a0830');}
-  if(bffsT>1.6)uiBtnRect=drawPixelBtn('PLAY AGAIN',W/2,44,2);
+  if(bffsT>1.0){pxText('FINAL SCORE '+score,W/2,14,2,ROWS_GOLD,'#2a0830');}
+  if(bffsT>1.6)uiBtnRect=drawPixelBtn('PLAY AGAIN',W/2,48,2);
   const el=trackEl('dance');
   const songOver=(el&&!musElFailed&&el.ended)||(!el&&bffsT>40);
   if(songOver&&bffsT>2)restartGame();
