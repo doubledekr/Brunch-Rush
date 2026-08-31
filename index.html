@@ -1590,53 +1590,53 @@ function drawPlayer(cx,cy){
 }
 // ---------- brunch cutscene ----------
 let cutT=0,inCut=false,titleMode=true;
-const TITLE_BG='assets/title_bg.png?v=1788135442';
-const WIN_BG='assets/win_bg.png?v=1788135442';
-const CAR_SPR='assets/car_spr.png?v=1788135442';
-const WORLD_BG='assets/world_bg.png?v=1788135442';
-const SPR_GLASS='assets/spr_glass.png?v=1788135442';
+const TITLE_BG='assets/title_bg.png?v=1788135659';
+const WIN_BG='assets/win_bg.png?v=1788135659';
+const CAR_SPR='assets/car_spr.png?v=1788135659';
+const WORLD_BG='assets/world_bg.png?v=1788135659';
+const SPR_GLASS='assets/spr_glass.png?v=1788135659';
 const GLASS_IN=[[-1, -1], [19, 34], [15, 35], [11, 39], [10, 40], [10, 41], [9, 41], [9, 41], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [7, 42], [7, 42], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 44], [7, 44], [6, 45], [6, 44], [6, 44], [6, 44], [6, 44], [6, 44], [6, 44], [6, 44], [5, 44], [5, 44], [5, 45], [5, 45], [5, 46], [5, 46], [5, 46], [5, 46], [5, 46], [5, 46], [5, 45], [5, 45], [5, 45], [5, 45], [5, 46], [5, 46], [5, 45], [5, 45], [5, 45], [5, 46], [5, 46], [5, 46], [5, 46], [5, 46], [4, 46], [4, 46], [4, 45], [4, 45], [5, 45], [5, 45], [5, 45], [5, 45], [5, 45], [6, 44], [6, 43], [7, 43], [7, 43], [7, 43], [7, 42], [8, 42], [9, 41], [9, 41], [9, 41], [10, 40], [11, 39], [11, 38], [13, 37], [13, 37], [13, 36], [14, 36], [14, 36], [14, 35], [15, 34], [17, 33], [17, 32], [18, 31], [20, 30], [20, 30], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1]];
-const TIPSY_BG='assets/tipsy_bg.png?v=1788135442';
-const BOARD_BG='assets/board_bg.png?v=1788135442';
-const LOOKUP_BG='assets/scene_lookup.png?v=1788135442';
-const BURGER_BG='assets/scene_burger.png?v=1788135442';
-const DINER_BG='assets/scene_diner.png?v=1788135442';
-const PARTY_BG='assets/scene_party.png?v=1788135442';
-const FLOOR_BG='assets/scene_dancefloor.png?v=1788135442';
-const BFFS_BG='assets/scene_bffs.png?v=1788135442';
-const DANCE_MUSIC='assets/dance_music.m4a?v=1788135442';
-const FOOD_SRC={burger:'assets/food_burger.png?v=1788135442',fries:'assets/food_fries.png?v=1788135442',shake:'assets/food_shake.png?v=1788135442',rings:'assets/food_rings.png?v=1788135442',ticket:'assets/food_ticket.png?v=1788135442',phone:'assets/food_phone.png?v=1788135442'};
+const TIPSY_BG='assets/tipsy_bg.png?v=1788135659';
+const BOARD_BG='assets/board_bg.png?v=1788135659';
+const LOOKUP_BG='assets/scene_lookup.png?v=1788135659';
+const BURGER_BG='assets/scene_burger.png?v=1788135659';
+const DINER_BG='assets/scene_diner.png?v=1788135659';
+const PARTY_BG='assets/scene_party.png?v=1788135659';
+const FLOOR_BG='assets/scene_dancefloor.png?v=1788135659';
+const BFFS_BG='assets/scene_bffs.png?v=1788135659';
+const DANCE_MUSIC='assets/dance_music.m4a?v=1788135659';
+const FOOD_SRC={burger:'assets/food_burger.png?v=1788135659',fries:'assets/food_fries.png?v=1788135659',shake:'assets/food_shake.png?v=1788135659',rings:'assets/food_rings.png?v=1788135659',ticket:'assets/food_ticket.png?v=1788135659',phone:'assets/food_phone.png?v=1788135659'};
 const DANCER_SRC={shauna:'assets/dance_shauna_',kelsey:'assets/dance_kelsey_',jacques:'assets/dance_jacques_',lisbet:'assets/dance_lisbet_'};
-const BUILD_V='1788135442';
-const BEAT_SRC=['assets/beat_glass.png?v=1788135442','assets/beat_note.png?v=1788135442','assets/beat_star.png?v=1788135442','assets/beat_flamingo.png?v=1788135442'];
-const PENT_BG='assets/pent_bg.png?v=1788135442';
-const SPR_PELICAN='assets/spr_pelican.png?v=1788135442';
-const TRIO_SRC=['assets/trio_00.png?v=1788135442','assets/trio_01.png?v=1788135442','assets/trio_02.png?v=1788135442','assets/trio_10.png?v=1788135442','assets/trio_11.png?v=1788135442','assets/trio_12.png?v=1788135442'];
-const VO_GIG='assets/vo_gig.m4a?v=1788135442';
-const VO_EEK='assets/vo_eek.m4a?v=1788135442';
-const MIX_BG='assets/mix_bg.png?v=1788135442';
-const SPR_JUG='assets/spr_jug.png?v=1788135442';
-const SPR_BOTTLE='assets/spr_bottle.png?v=1788135442';
-const SPR_SPARK='assets/spr_spark.png?v=1788135442';
-const STORY_BG='assets/story_bg.png?v=1788135442';
-const SPR_MIMOSA='assets/spr_mimosa.png?v=1788135442';
-const VO_OHMAN='assets/vo_ohman.m4a?v=1788135442';
-const VO_HURRY='assets/vo_hurry.m4a?v=1788135442';
-const VO_NEVER='assets/vo_never.m4a?v=1788135442';
-const LOSE_SIGN='assets/lose_sign.png?v=1788135442';
-const VO_GO='assets/vo_go.m4a?v=1788135442';
-const VO_CHEERS='assets/vo_cheers.m4a?v=1788135442';
-const VO_GOODMIX='assets/vo_goodmix.m4a?v=1788135442';
-const VO_BADMIX='assets/vo_badmix.m4a?v=1788135442';
-const PHONE_BG='assets/phone_bg.png?v=1788135442';
-const BRUNCH_MUSIC='assets/brunch_music.m4a?v=1788135442';
-const WOBBLE_MUSIC='assets/wobble_music.m4a?v=1788135442';
-const LISBET_MUSIC='assets/lisbet_music.m4a?v=1788135442';
-const MUSIC_DATA='assets/music_data.m4a?v=1788135442';
-const SPR_CONE='assets/spr_cone.png?v=1788135442';
-const SPR_VOLT='assets/spr_volt.png?v=1788135442';
-const SPR_CROISS='assets/spr_croiss.png?v=1788135442';
-const SPR_TRUCK='assets/spr_truck.png?v=1788135442';
+const BUILD_V='1788135659';
+const BEAT_SRC=['assets/beat_glass.png?v=1788135659','assets/beat_note.png?v=1788135659','assets/beat_star.png?v=1788135659','assets/beat_flamingo.png?v=1788135659'];
+const PENT_BG='assets/pent_bg.png?v=1788135659';
+const SPR_PELICAN='assets/spr_pelican.png?v=1788135659';
+const TRIO_SRC=['assets/trio_00.png?v=1788135659','assets/trio_01.png?v=1788135659','assets/trio_02.png?v=1788135659','assets/trio_10.png?v=1788135659','assets/trio_11.png?v=1788135659','assets/trio_12.png?v=1788135659'];
+const VO_GIG='assets/vo_gig.m4a?v=1788135659';
+const VO_EEK='assets/vo_eek.m4a?v=1788135659';
+const MIX_BG='assets/mix_bg.png?v=1788135659';
+const SPR_JUG='assets/spr_jug.png?v=1788135659';
+const SPR_BOTTLE='assets/spr_bottle.png?v=1788135659';
+const SPR_SPARK='assets/spr_spark.png?v=1788135659';
+const STORY_BG='assets/story_bg.png?v=1788135659';
+const SPR_MIMOSA='assets/spr_mimosa.png?v=1788135659';
+const VO_OHMAN='assets/vo_ohman.m4a?v=1788135659';
+const VO_HURRY='assets/vo_hurry.m4a?v=1788135659';
+const VO_NEVER='assets/vo_never.m4a?v=1788135659';
+const LOSE_SIGN='assets/lose_sign.png?v=1788135659';
+const VO_GO='assets/vo_go.m4a?v=1788135659';
+const VO_CHEERS='assets/vo_cheers.m4a?v=1788135659';
+const VO_GOODMIX='assets/vo_goodmix.m4a?v=1788135659';
+const VO_BADMIX='assets/vo_badmix.m4a?v=1788135659';
+const PHONE_BG='assets/phone_bg.png?v=1788135659';
+const BRUNCH_MUSIC='assets/brunch_music.m4a?v=1788135659';
+const WOBBLE_MUSIC='assets/wobble_music.m4a?v=1788135659';
+const LISBET_MUSIC='assets/lisbet_music.m4a?v=1788135659';
+const MUSIC_DATA='assets/music_data.m4a?v=1788135659';
+const SPR_CONE='assets/spr_cone.png?v=1788135659';
+const SPR_VOLT='assets/spr_volt.png?v=1788135659';
+const SPR_CROISS='assets/spr_croiss.png?v=1788135659';
+const SPR_TRUCK='assets/spr_truck.png?v=1788135659';
 function mkImg(u){const i=new Image();i.src=u;return i;}
 const titleImg=mkImg(TITLE_BG), winImg=mkImg(WIN_BG), carImg=mkImg(CAR_SPR), worldImg=mkImg(WORLD_BG);
 const coneImg=mkImg(SPR_CONE), voltImg=mkImg(SPR_VOLT), croissImg=mkImg(SPR_CROISS), truckImg=mkImg(SPR_TRUCK);
@@ -2395,27 +2395,16 @@ function startDance(){
   for(let bar=4;bar<DANCE_END_BAR;bar++){
     if(bar<16){                                   // intro / verse 1: snares on 2 and 4
       add(bar,2,rl());add(bar,4,rl());
-    }else if(bar<24){                             // hook 1: quarters + 8th pushes
-      const pat=(bar%2===0)?[1,2,2.5,3,4]:[1,2,3,4,4.5];
-      let ln=rl();
-      for(const bt of pat){add(bar,bt,ln);ln=(ln+1+rl()%3)%4;}
-      if(bar%4===3)add(bar,4,(ln+2)%4);            // double on the last snare
-    }else if(bar<36){                             // verse 2: backbeat with 8th tails
+    }else if(bar<24){                             // hook 1: quarters, an 8th push now and then
+      add(bar,1,rl());add(bar,2,rl());add(bar,3,rl());add(bar,4,rl());
+      if(bar%4===3)add(bar,4.5,rl());
+    }else if(bar<36){                             // verse 2: backbeat, rare tail
       add(bar,2,rl());add(bar,4,rl());
-      if(bar%2===1)add(bar,4.5,rl());
-    }else{                                        // hook 2: full 8ths, 16th runs, big finish
-      if(bar%4===3){                              // 16th run on beat 4
-        add(bar,1,rl());add(bar,2,rl());add(bar,3,rl());
-        add(bar,4,0);add(bar,4.25,1);add(bar,4.5,2);add(bar,4.75,3);
-      }else if(bar%2===0){                        // straight 8ths
-        let ln=rl();
-        for(const bt of [1,1.5,2,2.5,3,3.5,4,4.5]){add(bar,bt,ln);ln=(ln+1)%4;}
-      }else{
-        add(bar,1,rl());add(bar,2,rl());add(bar,2.5,rl());add(bar,3,rl());add(bar,4,rl());
-      }
-      if(bar===DANCE_END_BAR-1){                   // final bar: 16ths sweeping across beats 3-4
-        for(let k=0;k<8;k++)add(bar,3+k*0.25,k%4);
-      }
+      if(bar%4===1)add(bar,4.5,rl());
+    }else{                                        // hook 2: quarters with occasional pushes
+      add(bar,1,rl());add(bar,2,rl());add(bar,3,rl());add(bar,4,rl());
+      if(bar%3===0)add(bar,2.5,rl());
+      if(bar===DANCE_END_BAR-1)add(bar,4.5,rl());   // one last push into the confetti
     }
   }
   dance.notes.sort((a,b)=>a.t-b.t);
@@ -2483,9 +2472,26 @@ function danceUpdate(dt2){
 }
 function danceLostBeat(){
   dance.phase='fail';dance.t=0;
-  try{const el=trackEl('dance');if(el)el.pause();}catch(e){}
-  try{musicNode&&musicNode.stop();musicNode=null;}catch(e){}
-  sndLose();
+  try{
+    const el=trackEl('dance');
+    if(el&&!el.paused){
+      try{el.preservesPitch=false;el.mozPreservesPitch=false;el.webkitPreservesPitch=false;}catch(e){}
+      let r=1.0;
+      const iv=setInterval(()=>{
+        r-=0.07; if(r<=0.08){clearInterval(iv);try{el.pause();el.playbackRate=1.0;}catch(e){}return;}
+        try{el.playbackRate=r;}catch(e){}
+      },80);
+    }
+  }catch(e){}
+  try{
+    if(musicNode&&AC){
+      const n=musicNode;const at=AC.currentTime;
+      n.playbackRate.setValueAtTime(1,at);n.playbackRate.linearRampToValueAtTime(0.05,at+1.2);
+      setTimeout(()=>{try{n.stop();}catch(e){}},1300);musicNode=null;
+    }
+  }catch(e){}
+  fxNoise(.9,3000,300,.06,1);
+  setTimeout(()=>sndLose(),700);
 }
 function danceFinish(){
   const total=dance.notes.length;
