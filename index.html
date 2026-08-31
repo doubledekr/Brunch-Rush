@@ -843,14 +843,8 @@ addEventListener('pointerdown',e=>{
   if(dance.on){
     const p2=canvasXY(e);
     if(dance.phase==='results'){if(dance.t>0.7&&inRect(p2,uiBtnRect))danceFinish();return;}
-    if(dance.phase==='celebrate'){
-    for(const c of dance.confetti){ctx.fillStyle=c.c;ctx.fillRect(Math.round(c.x),Math.round(c.y),c.s,c.s+1);}
-    pxText('YOU OWN THE FLOOR!',W/2,H*0.30,3,ROWS_GOLD,'#2a0830');
-    pxText('BEST COMBO '+dance.best,W/2,H*0.30+30,2,'#aefcf6');
-    if(dance.celT>2.2){ctx.fillStyle='rgba(255,244,224,'+Math.min(1,(dance.celT-2.2)).toFixed(3)+')';ctx.fillRect(0,0,W,H);}
-    return;
-  }
-  if(dance.phase==='fail'){if(dance.t>0.7&&inRect(p2,uiBtnRect))startDance();return;}
+    if(dance.phase==='fail'){if(dance.t>0.7&&inRect(p2,uiBtnRect))startDance();return;}
+    if(dance.phase==='intro'){if(dance.t>0.4&&inRect(p2,uiBtnRect))danceTap('btn');return;}
     danceTap(Math.min(3,Math.floor(p2.x/(W/4))));
     return;
   }
@@ -1590,53 +1584,53 @@ function drawPlayer(cx,cy){
 }
 // ---------- brunch cutscene ----------
 let cutT=0,inCut=false,titleMode=true;
-const TITLE_BG='assets/title_bg.png?v=1788135659';
-const WIN_BG='assets/win_bg.png?v=1788135659';
-const CAR_SPR='assets/car_spr.png?v=1788135659';
-const WORLD_BG='assets/world_bg.png?v=1788135659';
-const SPR_GLASS='assets/spr_glass.png?v=1788135659';
+const TITLE_BG='assets/title_bg.png?v=1788135822';
+const WIN_BG='assets/win_bg.png?v=1788135822';
+const CAR_SPR='assets/car_spr.png?v=1788135822';
+const WORLD_BG='assets/world_bg.png?v=1788135822';
+const SPR_GLASS='assets/spr_glass.png?v=1788135822';
 const GLASS_IN=[[-1, -1], [19, 34], [15, 35], [11, 39], [10, 40], [10, 41], [9, 41], [9, 41], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [7, 42], [7, 42], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 44], [7, 44], [6, 45], [6, 44], [6, 44], [6, 44], [6, 44], [6, 44], [6, 44], [6, 44], [5, 44], [5, 44], [5, 45], [5, 45], [5, 46], [5, 46], [5, 46], [5, 46], [5, 46], [5, 46], [5, 45], [5, 45], [5, 45], [5, 45], [5, 46], [5, 46], [5, 45], [5, 45], [5, 45], [5, 46], [5, 46], [5, 46], [5, 46], [5, 46], [4, 46], [4, 46], [4, 45], [4, 45], [5, 45], [5, 45], [5, 45], [5, 45], [5, 45], [6, 44], [6, 43], [7, 43], [7, 43], [7, 43], [7, 42], [8, 42], [9, 41], [9, 41], [9, 41], [10, 40], [11, 39], [11, 38], [13, 37], [13, 37], [13, 36], [14, 36], [14, 36], [14, 35], [15, 34], [17, 33], [17, 32], [18, 31], [20, 30], [20, 30], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1]];
-const TIPSY_BG='assets/tipsy_bg.png?v=1788135659';
-const BOARD_BG='assets/board_bg.png?v=1788135659';
-const LOOKUP_BG='assets/scene_lookup.png?v=1788135659';
-const BURGER_BG='assets/scene_burger.png?v=1788135659';
-const DINER_BG='assets/scene_diner.png?v=1788135659';
-const PARTY_BG='assets/scene_party.png?v=1788135659';
-const FLOOR_BG='assets/scene_dancefloor.png?v=1788135659';
-const BFFS_BG='assets/scene_bffs.png?v=1788135659';
-const DANCE_MUSIC='assets/dance_music.m4a?v=1788135659';
-const FOOD_SRC={burger:'assets/food_burger.png?v=1788135659',fries:'assets/food_fries.png?v=1788135659',shake:'assets/food_shake.png?v=1788135659',rings:'assets/food_rings.png?v=1788135659',ticket:'assets/food_ticket.png?v=1788135659',phone:'assets/food_phone.png?v=1788135659'};
+const TIPSY_BG='assets/tipsy_bg.png?v=1788135822';
+const BOARD_BG='assets/board_bg.png?v=1788135822';
+const LOOKUP_BG='assets/scene_lookup.png?v=1788135822';
+const BURGER_BG='assets/scene_burger.png?v=1788135822';
+const DINER_BG='assets/scene_diner.png?v=1788135822';
+const PARTY_BG='assets/scene_party.png?v=1788135822';
+const FLOOR_BG='assets/scene_dancefloor.png?v=1788135822';
+const BFFS_BG='assets/scene_bffs.png?v=1788135822';
+const DANCE_MUSIC='assets/dance_music.m4a?v=1788135822';
+const FOOD_SRC={burger:'assets/food_burger.png?v=1788135822',fries:'assets/food_fries.png?v=1788135822',shake:'assets/food_shake.png?v=1788135822',rings:'assets/food_rings.png?v=1788135822',ticket:'assets/food_ticket.png?v=1788135822',phone:'assets/food_phone.png?v=1788135822'};
 const DANCER_SRC={shauna:'assets/dance_shauna_',kelsey:'assets/dance_kelsey_',jacques:'assets/dance_jacques_',lisbet:'assets/dance_lisbet_'};
-const BUILD_V='1788135659';
-const BEAT_SRC=['assets/beat_glass.png?v=1788135659','assets/beat_note.png?v=1788135659','assets/beat_star.png?v=1788135659','assets/beat_flamingo.png?v=1788135659'];
-const PENT_BG='assets/pent_bg.png?v=1788135659';
-const SPR_PELICAN='assets/spr_pelican.png?v=1788135659';
-const TRIO_SRC=['assets/trio_00.png?v=1788135659','assets/trio_01.png?v=1788135659','assets/trio_02.png?v=1788135659','assets/trio_10.png?v=1788135659','assets/trio_11.png?v=1788135659','assets/trio_12.png?v=1788135659'];
-const VO_GIG='assets/vo_gig.m4a?v=1788135659';
-const VO_EEK='assets/vo_eek.m4a?v=1788135659';
-const MIX_BG='assets/mix_bg.png?v=1788135659';
-const SPR_JUG='assets/spr_jug.png?v=1788135659';
-const SPR_BOTTLE='assets/spr_bottle.png?v=1788135659';
-const SPR_SPARK='assets/spr_spark.png?v=1788135659';
-const STORY_BG='assets/story_bg.png?v=1788135659';
-const SPR_MIMOSA='assets/spr_mimosa.png?v=1788135659';
-const VO_OHMAN='assets/vo_ohman.m4a?v=1788135659';
-const VO_HURRY='assets/vo_hurry.m4a?v=1788135659';
-const VO_NEVER='assets/vo_never.m4a?v=1788135659';
-const LOSE_SIGN='assets/lose_sign.png?v=1788135659';
-const VO_GO='assets/vo_go.m4a?v=1788135659';
-const VO_CHEERS='assets/vo_cheers.m4a?v=1788135659';
-const VO_GOODMIX='assets/vo_goodmix.m4a?v=1788135659';
-const VO_BADMIX='assets/vo_badmix.m4a?v=1788135659';
-const PHONE_BG='assets/phone_bg.png?v=1788135659';
-const BRUNCH_MUSIC='assets/brunch_music.m4a?v=1788135659';
-const WOBBLE_MUSIC='assets/wobble_music.m4a?v=1788135659';
-const LISBET_MUSIC='assets/lisbet_music.m4a?v=1788135659';
-const MUSIC_DATA='assets/music_data.m4a?v=1788135659';
-const SPR_CONE='assets/spr_cone.png?v=1788135659';
-const SPR_VOLT='assets/spr_volt.png?v=1788135659';
-const SPR_CROISS='assets/spr_croiss.png?v=1788135659';
-const SPR_TRUCK='assets/spr_truck.png?v=1788135659';
+const BUILD_V='1788135822';
+const BEAT_SRC=['assets/beat_glass.png?v=1788135822','assets/beat_note.png?v=1788135822','assets/beat_star.png?v=1788135822','assets/beat_flamingo.png?v=1788135822'];
+const PENT_BG='assets/pent_bg.png?v=1788135822';
+const SPR_PELICAN='assets/spr_pelican.png?v=1788135822';
+const TRIO_SRC=['assets/trio_00.png?v=1788135822','assets/trio_01.png?v=1788135822','assets/trio_02.png?v=1788135822','assets/trio_10.png?v=1788135822','assets/trio_11.png?v=1788135822','assets/trio_12.png?v=1788135822'];
+const VO_GIG='assets/vo_gig.m4a?v=1788135822';
+const VO_EEK='assets/vo_eek.m4a?v=1788135822';
+const MIX_BG='assets/mix_bg.png?v=1788135822';
+const SPR_JUG='assets/spr_jug.png?v=1788135822';
+const SPR_BOTTLE='assets/spr_bottle.png?v=1788135822';
+const SPR_SPARK='assets/spr_spark.png?v=1788135822';
+const STORY_BG='assets/story_bg.png?v=1788135822';
+const SPR_MIMOSA='assets/spr_mimosa.png?v=1788135822';
+const VO_OHMAN='assets/vo_ohman.m4a?v=1788135822';
+const VO_HURRY='assets/vo_hurry.m4a?v=1788135822';
+const VO_NEVER='assets/vo_never.m4a?v=1788135822';
+const LOSE_SIGN='assets/lose_sign.png?v=1788135822';
+const VO_GO='assets/vo_go.m4a?v=1788135822';
+const VO_CHEERS='assets/vo_cheers.m4a?v=1788135822';
+const VO_GOODMIX='assets/vo_goodmix.m4a?v=1788135822';
+const VO_BADMIX='assets/vo_badmix.m4a?v=1788135822';
+const PHONE_BG='assets/phone_bg.png?v=1788135822';
+const BRUNCH_MUSIC='assets/brunch_music.m4a?v=1788135822';
+const WOBBLE_MUSIC='assets/wobble_music.m4a?v=1788135822';
+const LISBET_MUSIC='assets/lisbet_music.m4a?v=1788135822';
+const MUSIC_DATA='assets/music_data.m4a?v=1788135822';
+const SPR_CONE='assets/spr_cone.png?v=1788135822';
+const SPR_VOLT='assets/spr_volt.png?v=1788135822';
+const SPR_CROISS='assets/spr_croiss.png?v=1788135822';
+const SPR_TRUCK='assets/spr_truck.png?v=1788135822';
 function mkImg(u){const i=new Image();i.src=u;return i;}
 const titleImg=mkImg(TITLE_BG), winImg=mkImg(WIN_BG), carImg=mkImg(CAR_SPR), worldImg=mkImg(WORLD_BG);
 const coneImg=mkImg(SPR_CONE), voltImg=mkImg(SPR_VOLT), croissImg=mkImg(SPR_CROISS), truckImg=mkImg(SPR_TRUCK);
@@ -2383,10 +2377,14 @@ const DANCE_SYNC=(()=>{try{const m=/[?&]sync=(-?[0-9.]+)/.exec(location.search+l
 const DANCE_BPM=113, DANCE_OFF=0.056+DANCE_SYNC, DANCE_LEAD=1.5, DANCE_LAT=0.06;
 const DANCE_BAR=4*60/DANCE_BPM, DANCE_END_T=96.0, DANCE_END_BAR=Math.floor((DANCE_END_T-DANCE_OFF)/DANCE_BAR);
 const DANCE_HOOKS=[[16,24],[36,46]];
-const dance={on:false,phase:'intro',t:0,song:0,notes:[],hits:0,miss:0,combo:0,best:0,fb:'',fbT:0,fbCol:'#fff',startAt:0,done:false,press:[0,0,0,0],streak:0,fbLane:-1,fbPts:''};
+const dance={on:false,phase:'intro',t:0,song:0,notes:[],hits:0,miss:0,combo:0,best:0,fb:'',fbT:0,fbCol:'#fff',startAt:0,done:false,press:[0,0,0,0],streak:0,fbLane:-1,fbPts:'',flash:0,flashCol:'#fff',fx:[],shakeT:0,milestone:'',mileT:0};
+let danceTapeIv=null;
 const DANCE_FAIL_STREAK=6;
 function startDance(){
-  dance.on=true;dance.phase='intro';dance.t=0;dance.song=0;dance.hits=0;dance.miss=0;dance.combo=0;dance.best=0;dance.fb='';dance.done=false;dance.streak=0;dance.fbLane=-1;dance.fbPts='';
+  dance.on=true;dance.phase='intro';dance.t=0;dance.song=0;dance.hits=0;dance.miss=0;dance.combo=0;dance.best=0;dance.fb='';dance.done=false;dance.streak=0;dance.fbLane=-1;dance.fbPts='';dance.flash=0;dance.fx=[];dance.shakeT=0;dance.milestone='';
+  if(danceTapeIv){clearInterval(danceTapeIv);danceTapeIv=null;}
+  try{const el0=trackEl('dance');if(el0){el0.pause();el0.playbackRate=1.0;el0.currentTime=0;}}catch(e){}
+  try{musicNode&&musicNode.stop();musicNode=null;}catch(e){}
   dance.notes=[];dance.confetti=[];dance.celT=0;
   const per=60/DANCE_BPM;
   let seed=7;
@@ -2417,12 +2415,13 @@ function danceSongTime(){
 }
 function danceTap(lane){
   if(!dance.on)return;
-  if(dance.phase==='intro'){if(dance.t>0.4){dance.phase='play';dance.t=0;dance.song=0;
+  if(dance.phase==='intro'){if(dance.t>0.4&&(lane==='btn')){dance.phase='play';dance.t=0;dance.song=0;
       try{
         const el=trackEl('dance');
         if(el&&!musElFailed){
           try{musicNode&&musicNode.stop();musicNode=null;}catch(e2){}
-          el.currentTime=0;el.muted=false;if(volCtl)el.volume=0.5;const pp=el.play();if(pp&&pp.catch)pp.catch(()=>{});
+          if(danceTapeIv){clearInterval(danceTapeIv);danceTapeIv=null;}
+          el.playbackRate=1.0;el.currentTime=0;el.muted=false;if(volCtl)el.volume=0.5;const pp=el.play();if(pp&&pp.catch)pp.catch(()=>{});
         }else if(danceBuf&&AC){
           try{musicNode&&musicNode.stop();musicNode=null;}catch(e2){}
           const g=AC.createGain();g.gain.value=0.5;g.connect(AC.destination);
@@ -2440,6 +2439,13 @@ function danceTap(lane){
     const pts=bd<0.1?300:150;score+=pts;dance.streak=0;
     dance.fb=bd<0.1?'PERFECT!':'GOOD!';dance.fbPts='+'+pts;dance.fbCol=bd<0.1?'#ffd24d':'#7dfc9a';dance.fbT=0.7;dance.fbLane=lane;
     tone(bd<0.1?1320:988,.07,'triangle',.06);
+    const laneColF=['#ff6ec7','#7dfcf0','#ffd24d','#c084ff'][lane];
+    dance.flash=bd<0.1?0.9:0.55;dance.flashCol=bd<0.1?'#fff6d0':laneColF;
+    const lx=W*(0.125+0.25*lane), ly=H-122;
+    const nfx=bd<0.1?26:12;
+    for(let k=0;k<nfx;k++){const a2=Math.random()*Math.PI*2,sp=60+Math.random()*140;dance.fx.push({x:lx,y:ly,vx:Math.cos(a2)*sp,vy:Math.sin(a2)*sp-40,t:0,life:0.5+Math.random()*0.4,c:bd<0.1?['#fff','#ffd24d','#ffe9a0'][k%3]:laneColF,s:bd<0.1?3:2});}
+    if(bd<0.1)dance.shakeT=0.18;
+    if(dance.combo>0&&dance.combo%10===0){dance.milestone='COMBO X'+dance.combo;dance.mileT=1.0;dance.shakeT=0.3;dance.flash=1.0;dance.flashCol='#fff';for(let k=0;k<40;k++)dance.fx.push({x:Math.random()*W,y:-10,vx:(Math.random()-0.5)*40,vy:60+Math.random()*80,t:0,life:1.2,c:['#ff6ec7','#7dfcf0','#ffd24d','#c084ff','#fff'][k%5],s:3});}
   }else{
     dance.combo=0;dance.streak++;dance.fb='MISS';dance.fbPts='';dance.fbCol='#ff6a6a';dance.fbT=0.6;dance.fbLane=lane;tone(200,.08,'square',.04);
     if(dance.streak>=DANCE_FAIL_STREAK)danceLostBeat();
@@ -2455,6 +2461,10 @@ function danceUpdate(dt2){
       if(dance.streak>=DANCE_FAIL_STREAK){danceLostBeat();break;}}}
     if(dance.fbT>0)dance.fbT-=dt2;
     for(let l=0;l<4;l++)if(dance.press[l]>0)dance.press[l]-=dt2;
+    if(dance.flash>0)dance.flash-=dt2*3;
+    if(dance.shakeT>0)dance.shakeT-=dt2;
+    if(dance.mileT>0)dance.mileT-=dt2;
+    for(let i=dance.fx.length-1;i>=0;i--){const f=dance.fx[i];f.t+=dt2;f.x+=f.vx*dt2;f.y+=f.vy*dt2;f.vy+=120*dt2;if(f.t>f.life)dance.fx.splice(i,1);}
     const endT=DANCE_END_T;
     if(now>endT){
       const total=dance.notes.length;
@@ -2477,10 +2487,12 @@ function danceLostBeat(){
     if(el&&!el.paused){
       try{el.preservesPitch=false;el.mozPreservesPitch=false;el.webkitPreservesPitch=false;}catch(e){}
       let r=1.0;
+      if(danceTapeIv)clearInterval(danceTapeIv);
       const iv=setInterval(()=>{
         r-=0.07; if(r<=0.08){clearInterval(iv);try{el.pause();el.playbackRate=1.0;}catch(e){}return;}
         try{el.playbackRate=r;}catch(e){}
       },80);
+      danceTapeIv=iv;
     }
   }catch(e){}
   try{
@@ -2499,7 +2511,10 @@ function danceFinish(){
   else startDance();
 }
 function renderDance(){
+  ctx.save();
+  if(dance.shakeT>0)ctx.translate(Math.round((Math.random()-0.5)*8),Math.round((Math.random()-0.5)*6));
   if(rdy(floorImg))ctx.drawImage(floorImg,0,0,W,H);else{ctx.fillStyle='#2a1040';ctx.fillRect(0,0,W,H);}
+  if(dance.phase==='play'&&dance.flash>0){ctx.globalAlpha=Math.min(0.28,dance.flash*0.28);ctx.fillStyle=dance.flashCol;ctx.fillRect(-10,-10,W+20,H+20);ctx.globalAlpha=1;}
   const now=danceSongTime();
   const beat=Math.floor((now-DANCE_OFF)/(60/DANCE_BPM));
   // dancers on the floor, poses cycle on the beat and pop on combo
@@ -2523,8 +2538,15 @@ function renderDance(){
     pxText('LAND 60% BY THE SECOND HOOK',W/2,116,2,'#c0fc3a');
     pxText('6 MISSES IN A ROW STOPS THE SONG',W/2,134,2,'#ff9a3a');
     pxText('SYNC '+(DANCE_SYNC>=0?'+':'')+Math.round(DANCE_SYNC*1000)+'MS',W/2,H-46,2,'#8a8aa0');
-    if(Math.floor(dance.t*2)%2===0)pxText('TAP TO DROP THE BEAT',W/2,H-26,2,ROWS_CREAM);
-    return;
+    if(dance.t>0.4)uiBtnRect=drawPixelBtn('DROP THE BEAT',W/2,H-24,3);
+    ctx.restore();return;
+  }
+  if(dance.phase==='celebrate'){
+    for(const c of dance.confetti){ctx.fillStyle=c.c;ctx.fillRect(Math.round(c.x),Math.round(c.y),c.s,c.s+1);}
+    pxText('YOU OWN THE FLOOR!',W/2,H*0.30,3,ROWS_GOLD,'#2a0830');
+    pxText('BEST COMBO '+dance.best,W/2,H*0.30+30,2,'#aefcf6');
+    if(dance.celT>2.2){ctx.fillStyle='rgba(255,244,224,'+Math.min(1,(dance.celT-2.2)).toFixed(3)+')';ctx.fillRect(0,0,W,H);}
+    ctx.restore();return;
   }
   if(dance.phase==='fail'){
     ctx.fillStyle='rgba(16,6,24,.6)';ctx.fillRect(0,0,W,H);
@@ -2532,7 +2554,7 @@ function renderDance(){
     pxText(DANCE_FAIL_STREAK+' MISSES IN A ROW . DJ CUT THE MUSIC',W/2,84,2,ROWS_CREAM);
     pxText('HITS '+dance.hits+'   BEST COMBO '+dance.best,W/2,110,2,'#aefcf6');
     if(dance.t>0.7)uiBtnRect=drawPixelBtn('RESTART THE SONG',W/2,H-30,2);
-    return;
+    ctx.restore();return;
   }
   if(dance.phase==='results'){
     ctx.fillStyle='rgba(16,6,24,.5)';ctx.fillRect(0,0,W,H);
@@ -2542,7 +2564,7 @@ function renderDance(){
     pxText('BEST COMBO '+dance.best,W/2,124,2,'#aefcf6');
     pxText(pct>=60?'THE FLOOR IS YOURS!':'NEED 60% TO KEEP THE FLOOR',W/2,150,2,pct>=60?'#7dfc9a':'#ff9a3a');
     if(dance.t>0.7)uiBtnRect=drawPixelBtn(pct>=60?'STRIKE A POSE':'TRY AGAIN',W/2,H-30,2);
-    return;
+    ctx.restore();return;
   }
   // lanes + hit pads (the tap targets)
   const hitY=H-122;
@@ -2569,6 +2591,14 @@ function renderDance(){
     if(rdy(bi))ctx.drawImage(bi,lx-16,Math.round(y-16),32,32);
     else{ctx.fillStyle='#ffd24d';ctx.fillRect(lx-10,Math.round(y-10),20,20);}
   }
+  if(dance.phase==='play'&&dance.flash>0.3){
+    ctx.globalAlpha=(dance.flash-0.3)*0.8;ctx.fillStyle=dance.flashCol;
+    ctx.fillRect(0,0,10,H);ctx.fillRect(W-10,0,10,H);ctx.fillRect(0,0,W,6);
+    ctx.globalAlpha=1;
+  }
+  for(const f of dance.fx){ctx.globalAlpha=Math.max(0,1-f.t/f.life);ctx.fillStyle=f.c;ctx.fillRect(Math.round(f.x),Math.round(f.y),f.s,f.s);}
+  ctx.globalAlpha=1;
+  if(dance.mileT>0){ctx.globalAlpha=Math.min(1,dance.mileT*2);pxText(dance.milestone,W/2,H-116-Math.round((1-dance.mileT)*40),4,ROWS_CYMG,'#2a0830');ctx.globalAlpha=1;}
   if(dance.fbT>0){
     const a=Math.min(1,dance.fbT*2.5);
     ctx.globalAlpha=a;
@@ -2582,6 +2612,7 @@ function renderDance(){
   }
   pxText('COMBO '+dance.combo,60,8,2,ROWS_GOLD);
   pxText('SCORE '+score,W-62,8,2,ROWS_CREAM);
+  ctx.restore();
 }
 function renderBffs(){
   if(rdy(bffsImg))ctx.drawImage(bffsImg,0,0,W,H);else{ctx.fillStyle='#3a2050';ctx.fillRect(0,0,W,H);}
