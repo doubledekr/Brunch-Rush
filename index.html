@@ -1590,53 +1590,53 @@ function drawPlayer(cx,cy){
 }
 // ---------- brunch cutscene ----------
 let cutT=0,inCut=false,titleMode=true;
-const TITLE_BG='assets/title_bg.png?v=1788135028';
-const WIN_BG='assets/win_bg.png?v=1788135028';
-const CAR_SPR='assets/car_spr.png?v=1788135028';
-const WORLD_BG='assets/world_bg.png?v=1788135028';
-const SPR_GLASS='assets/spr_glass.png?v=1788135028';
+const TITLE_BG='assets/title_bg.png?v=1788135208';
+const WIN_BG='assets/win_bg.png?v=1788135208';
+const CAR_SPR='assets/car_spr.png?v=1788135208';
+const WORLD_BG='assets/world_bg.png?v=1788135208';
+const SPR_GLASS='assets/spr_glass.png?v=1788135208';
 const GLASS_IN=[[-1, -1], [19, 34], [15, 35], [11, 39], [10, 40], [10, 41], [9, 41], [9, 41], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [8, 42], [7, 42], [7, 42], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 43], [7, 44], [7, 44], [6, 45], [6, 44], [6, 44], [6, 44], [6, 44], [6, 44], [6, 44], [6, 44], [5, 44], [5, 44], [5, 45], [5, 45], [5, 46], [5, 46], [5, 46], [5, 46], [5, 46], [5, 46], [5, 45], [5, 45], [5, 45], [5, 45], [5, 46], [5, 46], [5, 45], [5, 45], [5, 45], [5, 46], [5, 46], [5, 46], [5, 46], [5, 46], [4, 46], [4, 46], [4, 45], [4, 45], [5, 45], [5, 45], [5, 45], [5, 45], [5, 45], [6, 44], [6, 43], [7, 43], [7, 43], [7, 43], [7, 42], [8, 42], [9, 41], [9, 41], [9, 41], [10, 40], [11, 39], [11, 38], [13, 37], [13, 37], [13, 36], [14, 36], [14, 36], [14, 35], [15, 34], [17, 33], [17, 32], [18, 31], [20, 30], [20, 30], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1]];
-const TIPSY_BG='assets/tipsy_bg.png?v=1788135028';
-const BOARD_BG='assets/board_bg.png?v=1788135028';
-const LOOKUP_BG='assets/scene_lookup.png?v=1788135028';
-const BURGER_BG='assets/scene_burger.png?v=1788135028';
-const DINER_BG='assets/scene_diner.png?v=1788135028';
-const PARTY_BG='assets/scene_party.png?v=1788135028';
-const FLOOR_BG='assets/scene_dancefloor.png?v=1788135028';
-const BFFS_BG='assets/scene_bffs.png?v=1788135028';
-const DANCE_MUSIC='assets/dance_music.m4a?v=1788135028';
-const FOOD_SRC={burger:'assets/food_burger.png?v=1788135028',fries:'assets/food_fries.png?v=1788135028',shake:'assets/food_shake.png?v=1788135028',rings:'assets/food_rings.png?v=1788135028',ticket:'assets/food_ticket.png?v=1788135028',phone:'assets/food_phone.png?v=1788135028'};
+const TIPSY_BG='assets/tipsy_bg.png?v=1788135208';
+const BOARD_BG='assets/board_bg.png?v=1788135208';
+const LOOKUP_BG='assets/scene_lookup.png?v=1788135208';
+const BURGER_BG='assets/scene_burger.png?v=1788135208';
+const DINER_BG='assets/scene_diner.png?v=1788135208';
+const PARTY_BG='assets/scene_party.png?v=1788135208';
+const FLOOR_BG='assets/scene_dancefloor.png?v=1788135208';
+const BFFS_BG='assets/scene_bffs.png?v=1788135208';
+const DANCE_MUSIC='assets/dance_music.m4a?v=1788135208';
+const FOOD_SRC={burger:'assets/food_burger.png?v=1788135208',fries:'assets/food_fries.png?v=1788135208',shake:'assets/food_shake.png?v=1788135208',rings:'assets/food_rings.png?v=1788135208',ticket:'assets/food_ticket.png?v=1788135208',phone:'assets/food_phone.png?v=1788135208'};
 const DANCER_SRC={shauna:'assets/dance_shauna_',kelsey:'assets/dance_kelsey_',jacques:'assets/dance_jacques_',lisbet:'assets/dance_lisbet_'};
-const BUILD_V='1788135028';
-const BEAT_SRC=['assets/beat_glass.png?v=1788135028','assets/beat_note.png?v=1788135028','assets/beat_star.png?v=1788135028','assets/beat_flamingo.png?v=1788135028'];
-const PENT_BG='assets/pent_bg.png?v=1788135028';
-const SPR_PELICAN='assets/spr_pelican.png?v=1788135028';
-const TRIO_SRC=['assets/trio_00.png?v=1788135028','assets/trio_01.png?v=1788135028','assets/trio_02.png?v=1788135028','assets/trio_10.png?v=1788135028','assets/trio_11.png?v=1788135028','assets/trio_12.png?v=1788135028'];
-const VO_GIG='assets/vo_gig.m4a?v=1788135028';
-const VO_EEK='assets/vo_eek.m4a?v=1788135028';
-const MIX_BG='assets/mix_bg.png?v=1788135028';
-const SPR_JUG='assets/spr_jug.png?v=1788135028';
-const SPR_BOTTLE='assets/spr_bottle.png?v=1788135028';
-const SPR_SPARK='assets/spr_spark.png?v=1788135028';
-const STORY_BG='assets/story_bg.png?v=1788135028';
-const SPR_MIMOSA='assets/spr_mimosa.png?v=1788135028';
-const VO_OHMAN='assets/vo_ohman.m4a?v=1788135028';
-const VO_HURRY='assets/vo_hurry.m4a?v=1788135028';
-const VO_NEVER='assets/vo_never.m4a?v=1788135028';
-const LOSE_SIGN='assets/lose_sign.png?v=1788135028';
-const VO_GO='assets/vo_go.m4a?v=1788135028';
-const VO_CHEERS='assets/vo_cheers.m4a?v=1788135028';
-const VO_GOODMIX='assets/vo_goodmix.m4a?v=1788135028';
-const VO_BADMIX='assets/vo_badmix.m4a?v=1788135028';
-const PHONE_BG='assets/phone_bg.png?v=1788135028';
-const BRUNCH_MUSIC='assets/brunch_music.m4a?v=1788135028';
-const WOBBLE_MUSIC='assets/wobble_music.m4a?v=1788135028';
-const LISBET_MUSIC='assets/lisbet_music.m4a?v=1788135028';
-const MUSIC_DATA='assets/music_data.m4a?v=1788135028';
-const SPR_CONE='assets/spr_cone.png?v=1788135028';
-const SPR_VOLT='assets/spr_volt.png?v=1788135028';
-const SPR_CROISS='assets/spr_croiss.png?v=1788135028';
-const SPR_TRUCK='assets/spr_truck.png?v=1788135028';
+const BUILD_V='1788135208';
+const BEAT_SRC=['assets/beat_glass.png?v=1788135208','assets/beat_note.png?v=1788135208','assets/beat_star.png?v=1788135208','assets/beat_flamingo.png?v=1788135208'];
+const PENT_BG='assets/pent_bg.png?v=1788135208';
+const SPR_PELICAN='assets/spr_pelican.png?v=1788135208';
+const TRIO_SRC=['assets/trio_00.png?v=1788135208','assets/trio_01.png?v=1788135208','assets/trio_02.png?v=1788135208','assets/trio_10.png?v=1788135208','assets/trio_11.png?v=1788135208','assets/trio_12.png?v=1788135208'];
+const VO_GIG='assets/vo_gig.m4a?v=1788135208';
+const VO_EEK='assets/vo_eek.m4a?v=1788135208';
+const MIX_BG='assets/mix_bg.png?v=1788135208';
+const SPR_JUG='assets/spr_jug.png?v=1788135208';
+const SPR_BOTTLE='assets/spr_bottle.png?v=1788135208';
+const SPR_SPARK='assets/spr_spark.png?v=1788135208';
+const STORY_BG='assets/story_bg.png?v=1788135208';
+const SPR_MIMOSA='assets/spr_mimosa.png?v=1788135208';
+const VO_OHMAN='assets/vo_ohman.m4a?v=1788135208';
+const VO_HURRY='assets/vo_hurry.m4a?v=1788135208';
+const VO_NEVER='assets/vo_never.m4a?v=1788135208';
+const LOSE_SIGN='assets/lose_sign.png?v=1788135208';
+const VO_GO='assets/vo_go.m4a?v=1788135208';
+const VO_CHEERS='assets/vo_cheers.m4a?v=1788135208';
+const VO_GOODMIX='assets/vo_goodmix.m4a?v=1788135208';
+const VO_BADMIX='assets/vo_badmix.m4a?v=1788135208';
+const PHONE_BG='assets/phone_bg.png?v=1788135208';
+const BRUNCH_MUSIC='assets/brunch_music.m4a?v=1788135208';
+const WOBBLE_MUSIC='assets/wobble_music.m4a?v=1788135208';
+const LISBET_MUSIC='assets/lisbet_music.m4a?v=1788135208';
+const MUSIC_DATA='assets/music_data.m4a?v=1788135208';
+const SPR_CONE='assets/spr_cone.png?v=1788135208';
+const SPR_VOLT='assets/spr_volt.png?v=1788135208';
+const SPR_CROISS='assets/spr_croiss.png?v=1788135208';
+const SPR_TRUCK='assets/spr_truck.png?v=1788135208';
 function mkImg(u){const i=new Image();i.src=u;return i;}
 const titleImg=mkImg(TITLE_BG), winImg=mkImg(WIN_BG), carImg=mkImg(CAR_SPR), worldImg=mkImg(WORLD_BG);
 const coneImg=mkImg(SPR_CONE), voltImg=mkImg(SPR_VOLT), croissImg=mkImg(SPR_CROISS), truckImg=mkImg(SPR_TRUCK);
@@ -2379,9 +2379,9 @@ function renderDiner(){
   if(diner.phase==='msg')pxText(diner.msg,W/2,H*0.38,3,diner.msgCol,'#1c0a1e');
 }
 // ---------- DANCE: HIT THE BEAT ----------
-const DANCE_BPM=112.34, DANCE_OFF=0.245, DANCE_LEAD=1.5, DANCE_LAT=0.08;
-const DANCE_BAR=4*60/DANCE_BPM, DANCE_END_BAR=54;
-const DANCE_HOOKS=[[16,24],[36,54]];
+const DANCE_BPM=113, DANCE_OFF=0.056, DANCE_LEAD=1.5, DANCE_LAT=0.08;
+const DANCE_BAR=4*60/DANCE_BPM, DANCE_END_T=96.0, DANCE_END_BAR=Math.floor((DANCE_END_T-DANCE_OFF)/DANCE_BAR);
+const DANCE_HOOKS=[[16,24],[36,46]];
 const dance={on:false,phase:'intro',t:0,song:0,notes:[],hits:0,miss:0,combo:0,best:0,fb:'',fbT:0,fbCol:'#fff',startAt:0,done:false,press:[0,0,0,0],streak:0,fbLane:-1,fbPts:''};
 const DANCE_FAIL_STREAK=6;
 function startDance(){
@@ -2445,7 +2445,7 @@ function danceUpdate(dt2){
       if(dance.streak>=DANCE_FAIL_STREAK){danceLostBeat();break;}}}
     if(dance.fbT>0)dance.fbT-=dt2;
     for(let l=0;l<4;l++)if(dance.press[l]>0)dance.press[l]-=dt2;
-    const endT=DANCE_OFF+DANCE_END_BAR*DANCE_BAR;
+    const endT=DANCE_END_T;
     if(now>endT){
       const total=dance.notes.length;
       if(dance.hits>=Math.ceil(total*0.6)){
